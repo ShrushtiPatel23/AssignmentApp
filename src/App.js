@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import Dashboard from './components/Dashboard';
+import CreateAds from './components/CreateAds';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import FillData from './components/FillData';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Home />
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/createAds' element={<CreateAds />} />
+          <Route path='/fillData' element={<FillData />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
